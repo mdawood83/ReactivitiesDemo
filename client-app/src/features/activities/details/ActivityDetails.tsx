@@ -1,13 +1,20 @@
 import { Button } from "semantic-ui-react"
-import { Activity } from "../../../app/models/activity"
+import { useStore } from "../../../app/stores/store";
+// import { Activity } from "../../../app/models/activity"
 
-interface Props {
-    activity : Activity;
-    cancelActivity: () => void;
-    openForm: (id: string) => void;
-}
+// interface Props {
+//     activity : Activity;
+//     cancelActivity: () => void;
+//     openForm: (id: string) => void;
+// }
 
-export default function ActivityDetails({activity, cancelActivity, openForm}: Props) {
+export default function ActivityDetails() {
+    
+    const {activityStore} = useStore();
+    const {selectedActivity: activity, openForm, cancelSelectedActivity} = activityStore;
+
+    if (!activity) return;
+
   return (
     <div className="ui card fluid">
         <div className="image">
@@ -25,7 +32,7 @@ export default function ActivityDetails({activity, cancelActivity, openForm}: Pr
         <div className="extra content">
             <Button.Group widths='2'>
                 <Button onClick={() => openForm(activity.id)} basic color="blue" content="Edit"></Button>
-                <Button onClick={cancelActivity} basic color="grey" content="Cancel"></Button>
+                <Button onClick={cancelSelectedActivity} basic color="grey" content="Cancel"></Button>
             </Button.Group>
         </div>
         </div>
