@@ -477,3 +477,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+API/reactivities.db-wal
+API/reactivities.db
+API/reactivities.db-shm
+client-app/src/features/activities/dashboard/ActivityDashboard.tsx
+API/reactivities.db
