@@ -223,6 +223,17 @@ export default class ActivityStore {
         this.selectedActivity = undefined;
     }
 
+    updateAttendeeFollowing = (username: string) => {
+        this.activityRegistry.forEach(activity => {
+            activity.attendees?.forEach(attendee => {
+                if (attendee.username === username) {
+                    attendee.following ? attendee.followersCount-- : attendee.followersCount++;
+                    attendee.following = !attendee.following;
+                }
+            })
+        })
+    }
+
     // setTitle = () => {
     //     this.title = this.title + '!';
     // }
