@@ -20,7 +20,7 @@ export default observer(function NavBar() {
                 Reactivities
             </Menu.Item>
             <Menu.Item as={NavLink} to='/activities' name='Activities' />
-            <Menu.Item as={NavLink} to='/errors' name='Errors' />
+            {/* <Menu.Item as={NavLink} to='/errors' name='Errors' /> */}
             <Menu.Item>
                 {/* <Button onClick={() => activityStore.openForm()} positive content='Create Activity' /> */}
                 <Button as={NavLink} to='/createActivity' positive content='Create Activity' />
