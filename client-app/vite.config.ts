@@ -7,6 +7,8 @@ export default defineConfig({
     outDir: '../API/wwwroot'
   },
   server: {
+    host: true,
+    strictPort: true,
     port: 3000
   },
   plugins: [react()],
