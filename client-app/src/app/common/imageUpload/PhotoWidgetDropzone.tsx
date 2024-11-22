@@ -3,7 +3,7 @@ import {useDropzone} from 'react-dropzone'
 import { Header, Icon } from 'semantic-ui-react';
 
 interface Props {
-    setFiles: (files: any) => void;
+    setFiles: (files: object[]) => void;
 }
 
 export default function PhotoWidgetDropzone({setFiles}: Props) {
@@ -22,8 +22,8 @@ export default function PhotoWidgetDropzone({setFiles}: Props) {
 
   const onDrop = useCallback((acceptedFiles: object[]) => {
     // console.log(acceptedFiles);
-    setFiles(acceptedFiles.map((file: any) => Object.assign(file, {
-        preview: URL.createObjectURL(file)
+    setFiles(acceptedFiles.map((file: object) => Object.assign(file, {
+        preview: URL.createObjectURL(file as Blob)
     })))
   }, [setFiles])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
